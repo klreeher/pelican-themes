@@ -1,14 +1,9 @@
-{% extends "base.html" %}
-{% block canonical_rel %}<link rel="canonical" href="{{ SITEURL }}">{% endblock %}
-{% block banner %}
-    {% include 'includes/banner.html' %}
-{% endblock %}
-{% block content %}
-    <div class="col-md-auto">
-        <div class = "card bg-dark w-50">
+<div class="row">
+    <div class="col">
+        <div class = "card bg-light">
             <div class="card-header">
                 <h1 class="card-title">Kate Reeher</h1>
-                <h2 class="card-subtitle text-muted">Cares Deeply About Building Quality</h2>
+                <h3 class="card-subtitle text-muted">Cares Deeply About Building Quality</h2>
             </div>
             <div class= "card-body">
                 <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -20,11 +15,11 @@
             </ul>
         </div>
     </div>
-    <div class="col-md-auto">
-        <div class="card bg-light w-50 text-right">
+    <div class="col">
+        <div class="card bg-light text-right">
             <div class="card-header">
                 <h1 class="card-title">C. Elena Palmer</h1>
-                <h2 class="card-subtitle text-muted">Backend Architect / Code Monkey</h2>
+                <h3 class="card-subtitle text-muted">Backend Architect / Code Monkey</h2>
             </div>
             <div class="card-body">
                 <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -34,6 +29,6 @@
                 <li class="list-group-item">Github</li>
                 <li class="list-group-item">Website</li>
             </ul>
-        </div>      
+        </div>
     </div>
-{% endblock %}
+</div>

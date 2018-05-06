@@ -1,0 +1,29 @@
+<div class="row">
+    <nav class="nav">
+
+        <a href="{{ SITEURL }}/" class="nav-item">
+            {% if SITELOGO %}<img class="img-responsive pull-left gap-right" src="{{ SITEURL }}/{{ SITELOGO }}" width="{{ SITELOGO_SIZE }}"/> {% endif %}
+            {% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
+        </a>
+        {% if MENUITEMS or (pages and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
+            {% for title, link in MENUITEMS %}
+                <a class="nav-link active" href="{{ link }}">{{ title }}</a>
+            {% endfor %}
+            {% if not PAGES_SORT_ATTRIBUTE %}
+                {% set PAGES_SORT_ATTRIBUTE = 'title' %}
+            {% endif %}
+            {% if DISPLAY_PAGES_ON_MENU %}
+                {% for p in pages | sort(attribute=PAGES_SORT_ATTRIBUTE) %}
+                    {% if p.url %}
+                        <a class="nav-link {% if p == page %}active{% endif %}" href="{{ SITEURL }}/{{ p.url }}">{{ p.menulabel|default(p.title) }}</a>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if DISPLAY_CATEGORIES_ON_MENU %}
+                {% for cat, null in categories %}
+                    <a class="nav-link {% if cat == category %}active{% endif %}" href="{{ SITEURL }}/{{ cat.url }}">{{ cat | capitalize }}</a>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+    </nav>
+</div>
